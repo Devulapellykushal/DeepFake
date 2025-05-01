@@ -1,0 +1,83 @@
+.pixel-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.pixel-card {
+  height: 400px;
+  width: 300px;
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 4 / 5;
+  border: 1px solid #27272a;
+  border-radius: 25px;
+  isolation: isolate;
+  transition: border-color 200ms cubic-bezier(0.5, 1, 0.89, 1);
+  user-select: none;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.pixel-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  aspect-ratio: 1;
+  background: radial-gradient(circle, #09090b, transparent 85%);
+  opacity: 0;
+  transition: opacity 800ms cubic-bezier(0.5, 1, 0.89, 1);
+}
+
+.pixel-card:hover::before,
+.pixel-card:focus-within::before {
+  opacity: 1;
+}
+
+/* Card Content Styles */
+.card-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  color: white;
+  z-index: 1;
+  text-align: center;
+}
+
+.card-content h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 1rem 0;
+  color: white;
+}
+
+.card-content p {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 1rem 0;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.card-content .feature-icon {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.card-content .feature-link {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+}
+
+.card-content .feature-link:hover {
+  color: #0056b3;
+} 

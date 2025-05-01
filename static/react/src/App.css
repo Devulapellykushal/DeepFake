@@ -1,0 +1,150 @@
+/* Global Layout */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #1a1a1a;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Navigation */
+.navbar {
+  background-color: rgba(26, 26, 26, 0.9);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 2;
+}
+
+.nav-brand .brand-link {
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.nav-brand .brand-link:hover {
+  color: #007bff;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.nav-link {
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: all 0.3s;
+}
+
+.nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.nav-link.active {
+  background-color: #007bff;
+  color: white;
+}
+
+.nav-link.cta-button {
+  background-color: #007bff;
+  color: white;
+  font-weight: 500;
+  padding: 0.5rem 1.5rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.nav-link.cta-button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.nav-logo-container {
+  display: inline-block;
+  padding: 0;
+  background: transparent;
+  border: none;
+}
+
+.nav-logo-container .inner-content {
+  padding: 0;
+  background: transparent;
+  border: none;
+}
+
+.nav-logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.brand-link {
+  display: flex;
+  align-items: center;
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+  background-color: rgba(26, 26, 26, 0.7);
+  border-radius: 8px;
+}
+
+/* Footer */
+.footer {
+  background-color: rgba(26, 26, 26, 0.9);
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+  margin-top: auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .nav-brand {
+    margin-bottom: 1rem;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+  }
+
+  .nav-link {
+    text-align: center;
+    padding: 0.75rem;
+  }
+
+  .nav-link.cta-button {
+    margin-top: 0.5rem;
+  }
+
+  .main-content {
+    padding: 1rem;
+  }
+} 
