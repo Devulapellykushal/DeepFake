@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import './PhotoUploader.css';
 
 const PhotoUploader = () => {
@@ -7,6 +7,7 @@ const PhotoUploader = () => {
     const [isProcessing, setIsProcessing] = useState(false);
     const [result, setResult] = useState(null);
     const [error, setError] = useState(null);
+    const fileInputRef = useRef(null);
 
     const handleFileChange = (event) => {
         const file = event.target.files[0];
@@ -20,6 +21,12 @@ const PhotoUploader = () => {
             setPreviewUrl(URL.createObjectURL(file));
             setError(null);
             setResult(null);
+        }
+    };
+
+    const handleFileSelect = () => {
+        if (!isProcessing) {
+            fileInputRef.current.click();
         }
     };
 
@@ -62,15 +69,21 @@ const PhotoUploader = () => {
             <div className="upload-section">
                 <div className="file-input-container">
                     <input
+                        ref={fileInputRef}
                         type="file"
                         accept="image/*"
                         onChange={handleFileChange}
                         className="file-input"
                         disabled={isProcessing}
+                        style={{ display: 'none' }}
                     />
-                    <div className="file-input-label">
+                    <button
+                        onClick={handleFileSelect}
+                        className="file-input-button"
+                        disabled={isProcessing}
+                    >
                         {selectedFile ? 'Change Image' : 'Select Image'}
-                    </div>
+                    </button>
                 </div>
 
                 {previewUrl && (
@@ -83,22 +96,21 @@ const PhotoUploader = () => {
                     </div>
                 )}
 
-<button
-    onClick={handleUpload}
-    disabled={!selectedFile || isProcessing}
-    className={`upload-button ${isProcessing ? 'processing' : ''}`}
-    aria-busy={isProcessing}
->
-    {isProcessing ? (
-        <>
-            <span className="spinner"></span>
-            <span>Analyzing...</span>
-        </>
-    ) : (
-        'Analyze Image'
-    )}
-</button>
-
+                <button
+                    onClick={handleUpload}
+                    disabled={!selectedFile || isProcessing}
+                    className={`upload-button ${isProcessing ? 'processing' : ''}`}
+                    aria-busy={isProcessing}
+                >
+                    {isProcessing ? (
+                        <>
+                            <span className="spinner"></span>
+                            <span>Analyzing...</span>
+                        </>
+                    ) : (
+                        'Analyze Image'
+                    )}
+                </button>
 
                 {error && (
                     <div className="error-message">
@@ -113,14 +125,14 @@ const PhotoUploader = () => {
                             This image appears to be: {result.result}
                         </div>
                         <div className="confidence">
-                            Confidence: {result.confidence.toFixed(2)}%
+                            {/* Confidence: {result.confidence.toFixed(2)}% */}
                         </div>
                         <div className="analysis-details">
-                            <h4>Analysis Details:</h4>
+                            {/* <h4>Analysis Details:</h4> */}
                             <ul>
-                                <li>Face Detection: {result.face_detected ? '✓' : '✗'}</li>
-                                <li>Image Quality: {result.quality}</li>
-                                <li>Processing Time: {result.processing_time}s</li>
+                                {/* <li>Face Detection: {result.face_detected ? '✓' : '✗'}</li> */}
+                                {/* <li>Image Quality: {result.quality}</li>
+                                <li>Processing Time: {result.processing_time}s</li> */}
                             </ul>
                         </div>
                     </div>

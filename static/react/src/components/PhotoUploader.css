@@ -1,17 +1,19 @@
 .photo-uploader {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 2rem;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    max-width: 850px;
+    margin: 3rem auto;
+    padding: 2rem 3rem;
+    background: linear-gradient(135deg, #fdfbfb, #ebedee);
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .photo-uploader h2 {
     text-align: center;
-    color: #1a1a1a;
-    margin-bottom: 2rem;
+    color: #2c3e50;
     font-size: 2rem;
+    margin-bottom: 2rem;
+    font-weight: 600;
 }
 
 .placeholder-content {
@@ -67,110 +69,146 @@
 .upload-section {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 1.5rem;
 }
 
 .file-input-container {
-    position: relative;
     width: 100%;
+    max-width: 600px;
     text-align: center;
 }
 
-.file-input {
-    position: absolute;
+.file-input-button {
     width: 100%;
-    height: 100%;
-    opacity: 0;
-    cursor: pointer;
-}
-
-.file-input-label {
     padding: 1.5rem;
-    border: 2px dashed #ccc;
-    border-radius: 4px;
-    background-color: #f8f9fa;
-    transition: all 0.3s;
+    font-size: 1.1rem;
+    background-color: #f7f9fa;
+    color: #2c3e50;
+    border: 2px dashed #2980b9;
+    border-radius: 12px;
     cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
 }
 
-.file-input-label:hover {
-    border-color: #007bff;
-    background-color: #f0f7ff;
+.file-input-button:hover:not(:disabled) {
+    border-color: #1c6ea4;
+    background-color: #f0f8ff;
+    box-shadow: 0 0 0 3px rgba(41, 128, 185, 0.1);
+}
+
+.file-input-button:disabled {
+    background-color: #e9ecef;
+    border-color: #bdc3c7;
+    cursor: not-allowed;
+    transform: none;
 }
 
 .preview-section {
     width: 100%;
-    max-width: 600px;
+    max-width: 640px;
     margin: 0 auto;
     text-align: center;
 }
 
 .image-preview {
-    max-width: 100%;
+    width: 100%;
     max-height: 400px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
     object-fit: contain;
 }
 
 .upload-button {
-    padding: 0.75rem 1.5rem;
-    background-color: #007bff;
+    padding: 0.9rem 2.2rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    background-color: #3498db;
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 8px;
     cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s;
-    width: fit-content;
-    margin: 0 auto;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    min-width: 160px;
+    justify-content: center;
 }
 
 .upload-button:hover:not(:disabled) {
-    background-color: #0056b3;
+    background-color: #217dbb;
+    transform: translateY(-2px);
 }
 
 .upload-button:disabled {
-    background-color: #ccc;
+    background-color: #bdc3c7;
     cursor: not-allowed;
+    transform: none;
+}
+
+.upload-button.processing {
+    background-color: #217dbb;
+    cursor: wait;
 }
 
 .error-message {
-    color: #dc3545;
-    padding: 1rem;
-    background-color: #f8d7da;
-    border: 1px solid #f5c6cb;
-    border-radius: 4px;
-    text-align: center;
+    margin-top: 1rem;
+    padding: 1rem 1.2rem;
+    background-color: #ffebee;
+    border-radius: 8px;
+    color: #c62828;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 2px 4px rgba(198, 40, 40, 0.1);
 }
 
 .result-section {
-    padding: 1.5rem;
-    border-radius: 8px;
+    margin-top: 2rem;
+    padding: 2rem;
+    border-radius: 12px;
     text-align: center;
+    transition: all 0.3s ease;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .result-section.real {
-    background-color: #d4edda;
-    border: 1px solid #c3e6cb;
-    color: #155724;
+    background-color: #e3fbe7;
+    border: 2px solid #4caf50;
 }
 
 .result-section.fake {
-    background-color: #f8d7da;
-    border: 1px solid #f5c6cb;
-    color: #721c24;
+    background-color: #fff3e0;
+    border: 2px solid #ff9800;
+}
+
+.result-section h3 {
+    font-size: 1.4rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-weight: 600;
 }
 
 .result-text {
-    font-size: 1.2rem;
-    margin: 1rem 0;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
 }
 
 .confidence {
-    font-size: 1rem;
-    opacity: 0.8;
-    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    color: #444;
+    opacity: 0.9;
 }
 
 .analysis-details {
@@ -183,6 +221,7 @@
 .analysis-details h4 {
     margin-bottom: 1rem;
     color: inherit;
+    font-size: 1.2rem;
 }
 
 .analysis-details ul {
@@ -195,6 +234,7 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    font-size: 1.1rem;
 }
 
 @media (max-width: 768px) {
@@ -207,12 +247,34 @@
         font-size: 1.75rem;
     }
 
-    .placeholder-content p {
-        font-size: 1.1rem;
+    .file-input-button {
+        padding: 1rem;
+        font-size: 1rem;
     }
 
     .image-preview {
         max-height: 300px;
+    }
+
+    .upload-button {
+        width: 100%;
+        padding: 0.8rem 1.5rem;
+    }
+
+    .result-section {
+        padding: 1.5rem;
+    }
+
+    .result-section h3 {
+        font-size: 1.2rem;
+    }
+
+    .result-text {
+        font-size: 1.1rem;
+    }
+
+    .confidence {
+        font-size: 1rem;
     }
 
     .analysis-details {
@@ -221,20 +283,21 @@
 
     .analysis-details li {
         justify-content: center;
+        font-size: 1rem;
     }
-} 
-/* Loader Spinner */
-.loading-spinner {
-    margin: 1rem auto;
-    border: 6px solid #f3f3f3;
-    border-top: 6px solid #007bff;
-    border-radius: 50%;
-    width: 48px;
-    height: 48px;
-    animation: spin 1s linear infinite;
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.spinner {
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s linear infinite;
 }

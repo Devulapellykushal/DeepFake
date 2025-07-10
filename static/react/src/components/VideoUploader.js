@@ -238,7 +238,7 @@ const VideoUploader = () => {
                         </div>
                         {result.confidence !== undefined && (
                             <div className="confidence">
-                                Confidence: {result.confidence.toFixed(2)}%
+                                {/* Confidence: {result.confidence.toFixed(2)}% */}
                             </div>
                         )}
                     </div>
